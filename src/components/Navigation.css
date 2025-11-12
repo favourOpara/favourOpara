@@ -1,0 +1,162 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all var(--transition-base);
+  background: transparent;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.nav-logo span {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-menu.desktop {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .nav-menu.desktop {
+    display: flex;
+  }
+}
+
+.nav-menu a {
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition-base);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  z-index: 1001;
+}
+
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  max-width: 280px;
+  height: 100vh;
+  background: white;
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  padding: 5rem 1.5rem 2rem;
+}
+
+@media (max-width: 480px) {
+  .mobile-menu {
+    width: 80%;
+    max-width: 250px;
+    padding: 5rem 1rem 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-menu a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition-base);
+}
+
+@media (max-width: 480px) {
+  .mobile-menu a {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.85rem;
+  }
+}
+
+.mobile-menu a:hover {
+  background: var(--bg-secondary);
+  transform: translateX(6px);
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+@media (min-width: 769px) {
+  .mobile-overlay {
+    display: none;
+  }
+}
